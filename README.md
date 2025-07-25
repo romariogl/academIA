@@ -1,62 +1,62 @@
 
-# Academ.ia - Portal de Periódicos da CAPES com IA
+# Academ.ia - CAPES Periodicals Portal with AI
 
-Sistema de busca inteligente para o Portal de Periódicos da CAPES, integrando IA generativa com busca semântica em documentos acadêmicos.
+Intelligent search system for the CAPES Periodicals Portal, integrating generative AI with semantic search in academic documents.
 
-## 🚀 Funcionalidades
+## 🚀 Features
 
-- **Interface Web**: Design baseado no Portal de Periódicos da CAPES
-- **Chat com IA**: Assistente virtual para pesquisa acadêmica
-- **Busca Semântica**: Utiliza ChromaDB para busca inteligente
-- **RAG (Retrieval-Augmented Generation)**: Combina busca de documentos com geração de respostas
-- **Modelo Local**: Usa DialoGPT para geração de respostas
+- **Web Interface**: Design based on the CAPES Periodicals Portal
+- **AI Chat**: Virtual assistant for academic research
+- **Semantic Search**: Uses ChromaDB for intelligent search
+- **RAG (Retrieval-Augmented Generation)**: Combines document search with response generation
+- **Local Model**: Uses DialoGPT for response generation
 
-## 🏗️ Arquitetura
+## 🏗️ Architecture
 
-### 📁 Estrutura de Arquivos
+### 📁 File Structure
 ```
 academIA/
-├── rag_backend/           # Backend Flask + ChromaDB
-│   ├── app.py            # API Flask
-│   ├── models/           # Modelos de IA e vetores
+├── rag_backend/           # Flask Backend + ChromaDB
+│   ├── app.py            # Flask API
+│   ├── models/           # AI and vector models
 │   │   ├── chroma_vector_store.py
 │   │   └── generate_local.py
-│   └── requirements.txt  # Dependências Python
-├── rag_frontend/         # Frontend React
+│   └── requirements.txt  # Python dependencies
+├── rag_frontend/         # React Frontend
 │   ├── src/
-│   │   ├── App.js        # Interface principal
-│   │   └── App.css       # Estilos baseados no CAPES
-│   └── package.json      # Dependências Node.js
-└── ingestion_module/     # Scripts de ingestão de dados
-    └── ingest.py         # Ingestão no ChromaDB
+│   │   ├── App.js        # Main interface
+│   │   └── App.css       # CAPES-based styles
+│   └── package.json      # Node.js dependencies
+└── ingestion_module/     # Data ingestion scripts
+    └── ingest.py         # ChromaDB ingestion
 ```
 
-### 🔄 Diagrama de Arquitetura
-Para uma visualização detalhada da arquitetura do sistema, consulte o [**Diagrama de Arquitetura**](./ARCHITECTURE.md).
+### 🔄 Architecture Diagram
+For a detailed view of the system architecture, see the [**Architecture Diagram**](./ARCHITECTURE.md).
 
-**Componentes Principais:**
-- **Frontend React**: Interface baseada no Portal de Periódicos da CAPES
-- **API Flask**: Backend com orquestração de busca
-- **ChromaDB**: Banco de dados vetorial para busca semântica
-- **DialoGPT**: Modelo local de IA para geração de respostas
-- **Ingestão**: Sistema de processamento e indexação de dados
+**Main Components:**
+- **React Frontend**: Interface based on the CAPES Periodicals Portal
+- **Flask API**: Backend with search orchestration
+- **ChromaDB**: Vector database for semantic search
+- **DialoGPT**: Local AI model for response generation
+- **Ingestion**: Data processing and indexing system
 
-## 🛠️ Tecnologias
+## 🛠️ Technologies
 
 ### Backend
-- **Flask**: API REST
-- **ChromaDB**: Banco de dados vetorial
-- **Sentence Transformers**: Embeddings para busca semântica
-- **DialoGPT**: Modelo de linguagem local
-- **Transformers**: Biblioteca para modelos de IA
+- **Flask**: REST API
+- **ChromaDB**: Vector database
+- **Sentence Transformers**: Embeddings for semantic search
+- **DialoGPT**: Local language model
+- **Transformers**: AI models library
 
 ### Frontend
-- **React**: Interface de usuário
-- **Bootstrap**: Framework CSS
-- **Font Awesome**: Ícones
-- **Axios**: Cliente HTTP
+- **React**: User interface
+- **Bootstrap**: CSS framework
+- **Font Awesome**: Icons
+- **Axios**: HTTP client
 
-## 📦 Instalação
+## 📦 Installation
 
 ### 1. Backend
 
@@ -64,7 +64,7 @@ Para uma visualização detalhada da arquitetura do sistema, consulte o [**Diagr
 cd rag_backend
 python -m venv venv
 source venv/bin/activate  # Linux/Mac
-# ou
+# or
 venv\Scripts\activate     # Windows
 
 pip install -r requirements.txt
@@ -77,43 +77,43 @@ cd rag_frontend
 npm install
 ```
 
-## 🚀 Execução
+## 🚀 Execution
 
-### 1. Iniciar Backend
+### 1. Start Backend
 
 ```bash
 cd rag_backend
 python app.py
 ```
 
-O backend estará disponível em: `http://127.0.0.1:5000`
+The backend will be available at: `http://127.0.0.1:5000`
 
-### 2. Iniciar Frontend
+### 2. Start Frontend
 
 ```bash
 cd rag_frontend
 npm start
 ```
 
-O frontend estará disponível em: `http://localhost:3000`
+The frontend will be available at: `http://localhost:3000`
 
-### 3. Ingerir Dados (Opcional)
+### 3. Ingest Data (Optional)
 
 ```bash
 python ingestion_module/ingest.py
 ```
 
-## 🎯 Como Usar
+## 🎯 How to Use
 
-1. **Acesse a interface**: Abra `http://localhost:3000`
-2. **Clique no botão da IA**: "Para uma melhor experiência de busca, utilize a nossa IA!"
-3. **Faça perguntas**: 
-   - Perguntas gerais: "Quais são os artigos sobre Inteligência Artificial?"
-   - Perguntas específicas: "No artigo X, quais são as principais conclusões?"
+1. **Access the interface**: Open `http://localhost:3000`
+2. **Click the AI button**: "For a better search experience, use our AI!"
+3. **Ask questions**: 
+   - General questions: "What are the articles about Artificial Intelligence?"
+   - Specific questions: "In article X, what are the main conclusions?"
 
-## 🔧 Configuração
+## 🔧 Configuration
 
-### Variáveis de Ambiente
+### Environment Variables
 
 ```bash
 # Backend
@@ -123,104 +123,104 @@ BACKEND_URL=http://127.0.0.1:5000
 CHROMA_DB_PATH=./chroma_db
 ```
 
-### Modelos de IA
+### AI Models
 
-O sistema usa:
-- **Sentence Transformers**: `all-MiniLM-L6-v2` (para embeddings)
-- **DialoGPT**: `microsoft/DialoGPT-medium` (para geração)
+The system uses:
+- **Sentence Transformers**: `all-MiniLM-L6-v2` (for embeddings)
+- **DialoGPT**: `microsoft/DialoGPT-medium` (for generation)
 
-## 📊 Funcionalidades da IA
+## 📊 AI Features
 
-### Tipos de Busca
-- **Busca Semântica**: Encontra documentos similares
-- **Busca Híbrida**: Combina semântica + léxica
-- **Busca Específica**: Foca em um documento específico
+### Search Types
+- **Semantic Search**: Finds similar documents
+- **Hybrid Search**: Combines semantic + lexical
+- **Specific Search**: Focuses on a specific document
 
-### Capacidades
-- ✅ Busca em artigos acadêmicos
-- ✅ Respostas baseadas em contexto
-- ✅ Interface familiar do CAPES
-- ✅ Chat interativo
-- ✅ Busca por palavras-chave
-
-## 🔄 Fluxo de Dados
-
-### 1. **Consulta do Usuário**
-```
-Usuário → Frontend React → API Flask
-```
-
-### 2. **Orquestração**
-```
-API → Orchestrator → Tipo de Busca (Geral/Específica)
-```
-
-### 3. **Busca de Documentos**
-```
-Orchestrator → ChromaDB → Resultados Relevantes
-```
-
-### 4. **Geração de Resposta**
-```
-Resultados → DialoGPT → Resposta Contextualizada
-```
-
-### 5. **Retorno**
-```
-Resposta → API → Frontend → Usuário
-```
+### Capabilities
+- ✅ Search in academic articles
+- ✅ Context-based responses
+- ✅ Familiar CAPES interface
+- ✅ Interactive chat
+- ✅ Keyword search
 
 ## 🎨 Interface
 
-A interface foi baseada no design oficial do Portal de Periódicos da CAPES, incluindo:
+The interface was based on the official design of the CAPES Periodicals Portal, including:
 
-- **Header do Governo**: Barra padrão do gov.br
-- **Logo da CAPES**: Identidade visual oficial
-- **Cores Institucionais**: Azul (#1c1c5c) e laranja (#f16421)
-- **Layout Responsivo**: Funciona em desktop e mobile
-- **Chat Modal**: Interface de IA integrada
+- **Government Header**: Standard gov.br bar
+- **CAPES Logo**: Official visual identity
+- **Institutional Colors**: Blue (#1c1c5c) and orange (#f16421)
+- **Responsive Layout**: Works on desktop and mobile
+- **AI Chat Modal**: Integrated AI interface
 
-## 🔍 Exemplos de Uso
+## 🔍 Usage Examples
 
-### Perguntas Gerais
+### General Questions
 ```
-"Quais artigos falam sobre machine learning?"
-"Mostre artigos sobre inteligência artificial na educação"
-"Quais são as tendências em IA?"
-```
-
-### Perguntas Específicas
-```
-"No artigo 'Inteligência Artificial na Educação', quais são as principais conclusões?"
-"Quais metodologias são mencionadas no artigo sobre machine learning?"
+"What articles talk about machine learning?"
+"Show articles about artificial intelligence in education"
+"What are the trends in AI?"
 ```
 
-## 🐛 Solução de Problemas
+### Specific Questions
+```
+"In the article 'Artificial Intelligence in Education', what are the main conclusions?"
+"What methodologies are mentioned in the article about machine learning?"
+```
 
-### Erro de Conexão com Backend
-- Verifique se o Flask está rodando na porta 5000
-- Confirme se o CORS está habilitado
+## 🔄 Data Flow
 
-### Erro de ChromaDB
-- Verifique se o diretório `chroma_db` existe
-- Execute novamente o script de ingestão
+### 1. **User Query**
+```
+User → React Frontend → Flask API
+```
 
-### Erro de Modelo de IA
-- Verifique se as dependências estão instaladas
-- Confirme se há espaço suficiente em disco
+### 2. **Orchestration**
+```
+API → Orchestrator → Search Type (General/Specific)
+```
 
-## 📝 Licença
+### 3. **Document Search**
+```
+Orchestrator → ChromaDB → Relevant Results
+```
 
-Este projeto é um protótipo educacional baseado no Portal de Periódicos da CAPES.
+### 4. **Response Generation**
+```
+Results → DialoGPT → Contextualized Response
+```
 
-## 🤝 Contribuição
+### 5. **Return**
+```
+Response → API → Frontend → User
+```
 
-1. Fork o projeto
-2. Crie uma branch para sua feature
-3. Commit suas mudanças
-4. Push para a branch
-5. Abra um Pull Request
+## 🐛 Troubleshooting
+
+### Backend Connection Error
+- Check if Flask is running on port 5000
+- Confirm CORS is enabled
+
+### ChromaDB Error
+- Check if the `chroma_db` directory exists
+- Run the ingestion script again
+
+### AI Model Error
+- Check if dependencies are installed
+- Confirm there's enough disk space
+
+## 📝 License
+
+This project is an educational prototype based on the CAPES Periodicals Portal.
+
+## 🤝 Contribution
+
+1. Fork the project
+2. Create a branch for your feature
+3. Commit your changes
+4. Push to the branch
+5. Open a Pull Request
 
 ---
 
-**Desenvolvido com ❤️ para a comunidade acadêmica brasileira** 
+**Developed with ❤️ for the Brazilian academic community** 

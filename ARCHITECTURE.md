@@ -1,19 +1,19 @@
-# Arquitetura do Sistema Academ.ia
+# Academ.ia System Architecture
 
-## Visão Geral
+## Overview
 
-O Academ.ia é um sistema de RAG (Retrieval-Augmented Generation) que combina busca semântica com geração de respostas usando IA para o Portal de Periódicos da CAPES.
+Academ.ia is a RAG (Retrieval-Augmented Generation) system that combines semantic search with AI response generation for the CAPES Periodicals Portal.
 
-## Diagrama de Arquitetura
+## Architecture Diagram
 
 ```mermaid
 graph TB
-    %% Usuário
-    User[👤 Usuário] --> Frontend[🌐 Frontend React]
+    %% User
+    User[👤 User] --> Frontend[🌐 React Frontend]
     
     %% Frontend
-    Frontend --> |HTTP POST| API[🔌 API Flask]
-    Frontend --> |Chat Interface| ChatUI[💬 Chat da IA]
+    Frontend --> |HTTP POST| API[🔌 Flask API]
+    Frontend --> |Chat Interface| ChatUI[💬 AI Chat]
     
     %% Backend
     API --> Orchestrator[🎯 Orchestrator]
@@ -21,16 +21,16 @@ graph TB
     API --> LLM[🤖 Local LLM]
     
     %% Orchestrator
-    Orchestrator --> |General Search| GeneralSearch[🔍 Busca Geral]
-    Orchestrator --> |Specific Search| SpecificSearch[📄 Busca Específica]
+    Orchestrator --> |General Search| GeneralSearch[🔍 General Search]
+    Orchestrator --> |Specific Search| SpecificSearch[📄 Specific Search]
     
     %% Vector Store
-    VectorStore --> |Semantic Search| SemanticSearch[🧠 Busca Semântica]
-    VectorStore --> |Lexical Search| LexicalSearch[📝 Busca Léxica]
-    VectorStore --> |Hybrid Search| HybridSearch[🔄 Busca Híbrida]
+    VectorStore --> |Semantic Search| SemanticSearch[🧠 Semantic Search]
+    VectorStore --> |Lexical Search| LexicalSearch[📝 Lexical Search]
+    VectorStore --> |Hybrid Search| HybridSearch[🔄 Hybrid Search]
     
     %% LLM
-    LLM --> |DialoGPT| ResponseGen[✍️ Geração de Resposta]
+    LLM --> |DialoGPT| ResponseGen[✍️ Response Generation]
     
     %% Data Flow
     GeneralSearch --> VectorStore
@@ -45,9 +45,9 @@ graph TB
     Frontend --> User
     
     %% Data Ingestion
-    DataIngestion[📥 Ingestão de Dados] --> VectorStore
-    DataIngestion --> |Web Scraping| WebData[🌍 Dados Web]
-    DataIngestion --> |Sample Data| SampleData[📊 Dados de Exemplo]
+    DataIngestion[📥 Data Ingestion] --> VectorStore
+    DataIngestion --> |Web Scraping| WebData[🌍 Web Data]
+    DataIngestion --> |Sample Data| SampleData[📊 Sample Data]
     
     %% Styling
     classDef userClass fill:#e1f5fe
@@ -63,94 +63,94 @@ graph TB
     class LLM,ResponseGen aiClass
 ```
 
-## Componentes do Sistema
+## System Components
 
 ### 🎨 **Frontend (React)**
-- **Interface do Usuário**: Design baseado no Portal de Periódicos da CAPES
-- **Chat da IA**: Modal interativo para conversação
-- **Responsividade**: Adaptável a diferentes dispositivos
-- **Tecnologias**: React, Bootstrap, Font Awesome
+- **User Interface**: Design based on the CAPES Periodicals Portal
+- **AI Chat**: Interactive modal for conversation
+- **Responsiveness**: Adaptable to different devices
+- **Technologies**: React, Bootstrap, Font Awesome
 
 ### 🔌 **API (Flask)**
-- **Endpoint Principal**: `/rag` - Processa consultas e gera respostas
-- **Orchestrator**: Determina o tipo de busca baseado na query
-- **CORS**: Configurado para comunicação com frontend
-- **Tecnologias**: Flask, Flask-CORS
+- **Main Endpoint**: `/rag` - Processes queries and generates responses
+- **Orchestrator**: Determines search type based on query
+- **CORS**: Configured for frontend communication
+- **Technologies**: Flask, Flask-CORS
 
 ### 🗄️ **Vector Store (ChromaDB)**
-- **Busca Semântica**: Usando embeddings do Sentence Transformers
-- **Busca Léxica**: Filtros por metadados
-- **Busca Híbrida**: Combinação de semântica + léxica
-- **Persistência**: Dados salvos localmente
-- **Tecnologias**: ChromaDB, Sentence Transformers
+- **Semantic Search**: Using Sentence Transformers embeddings
+- **Lexical Search**: Metadata filters
+- **Hybrid Search**: Combination of semantic + lexical
+- **Persistence**: Data saved locally
+- **Technologies**: ChromaDB, Sentence Transformers
 
 ### 🤖 **Local LLM (DialoGPT)**
-- **Modelo**: Microsoft DialoGPT-medium
-- **Geração**: Respostas baseadas em contexto
-- **Processamento**: Local (sem dependências externas)
-- **Tecnologias**: Transformers, PyTorch
+- **Model**: Microsoft DialoGPT-medium
+- **Generation**: Context-based responses
+- **Processing**: Local (no external dependencies)
+- **Technologies**: Transformers, PyTorch
 
-### 📥 **Ingestão de Dados**
-- **Web Scraping**: Extração de artigos do CAPES
-- **Processamento**: Divisão em chunks e geração de embeddings
-- **Indexação**: Armazenamento no ChromaDB
-- **Tecnologias**: BeautifulSoup, LangChain
+### 📥 **Data Ingestion**
+- **Web Scraping**: Article extraction from CAPES
+- **Processing**: Chunking and embedding generation
+- **Indexing**: Storage in ChromaDB
+- **Technologies**: BeautifulSoup, LangChain
 
-## Fluxo de Dados
+## Data Flow
 
-### 1. **Consulta do Usuário**
+### 1. **User Query**
 ```
-Usuário → Frontend → API Flask
-```
-
-### 2. **Orquestração**
-```
-API → Orchestrator → Tipo de Busca
+User → Frontend → Flask API
 ```
 
-### 3. **Busca de Documentos**
+### 2. **Orchestration**
 ```
-Orchestrator → ChromaDB → Resultados
-```
-
-### 4. **Geração de Resposta**
-```
-Resultados → Local LLM → Resposta
+API → Orchestrator → Search Type
 ```
 
-### 5. **Retorno**
+### 3. **Document Search**
 ```
-Resposta → API → Frontend → Usuário
+Orchestrator → ChromaDB → Results
 ```
 
-## Tipos de Busca
+### 4. **Response Generation**
+```
+Results → Local LLM → Response
+```
 
-### 🔍 **Busca Geral**
-- **Trigger**: Palavras-chave gerais
-- **Processo**: Busca em todos os documentos
-- **Resultado**: Artigos relevantes
+### 5. **Return**
+```
+Response → API → Frontend → User
+```
 
-### 📄 **Busca Específica**
-- **Trigger**: "no artigo X" ou "do documento Y"
-- **Processo**: Filtro por nome do documento
-- **Resultado**: Conteúdo específico
+## Search Types
 
-### 🧠 **Busca Semântica**
-- **Método**: Embeddings vetoriais
-- **Vantagem**: Encontra similaridades conceituais
-- **Uso**: Quando busca léxica não é suficiente
+### 🔍 **General Search**
+- **Trigger**: General keywords
+- **Process**: Search in all documents
+- **Result**: Relevant articles
 
-### 📝 **Busca Léxica**
-- **Método**: Correspondência exata de palavras
-- **Vantagem**: Precisão para termos específicos
-- **Uso**: Busca por nomes, títulos, autores
+### 📄 **Specific Search**
+- **Trigger**: "in article X" or "from document Y"
+- **Process**: Filter by document name
+- **Result**: Specific content
 
-### 🔄 **Busca Híbrida**
-- **Método**: Combinação de semântica + léxica
-- **Vantagem**: Melhor cobertura e precisão
-- **Uso**: Padrão para a maioria das consultas
+### 🧠 **Semantic Search**
+- **Method**: Vector embeddings
+- **Advantage**: Finds conceptual similarities
+- **Use**: When lexical search is insufficient
 
-## Tecnologias Utilizadas
+### 📝 **Lexical Search**
+- **Method**: Exact word matching
+- **Advantage**: Precision for specific terms
+- **Use**: Search for names, titles, authors
+
+### 🔄 **Hybrid Search**
+- **Method**: Combination of semantic + lexical
+- **Advantage**: Better coverage and precision
+- **Use**: Default for most queries
+
+## Technologies Used
 
 ### **Frontend**
 - React 18.3.1
@@ -166,55 +166,55 @@ Resposta → API → Frontend → Usuário
 - Transformers (DialoGPT)
 - PyTorch
 
-### **Ingestão**
+### **Ingestion**
 - BeautifulSoup
 - LangChain
 - Requests
 
-### **Infraestrutura**
+### **Infrastructure**
 - Python 3.9+
 - Node.js 16+
 - SQLite (ChromaDB)
 
-## Considerações de Performance
+## Performance Considerations
 
-### **Otimizações Implementadas**
-- **Chunking**: Documentos divididos em pedaços de 500 tokens
-- **Embeddings**: Modelo otimizado (all-MiniLM-L6-v2)
-- **Cache**: ChromaDB com persistência local
-- **Truncation**: Limitação de entrada para evitar overflow
+### **Implemented Optimizations**
+- **Chunking**: Documents divided into 500-token chunks
+- **Embeddings**: Optimized model (all-MiniLM-L6-v2)
+- **Cache**: ChromaDB with local persistence
+- **Truncation**: Input limitation to prevent overflow
 
-### **Limitações Atuais**
-- **Modelo Local**: DialoGPT pode ser lento em hardware limitado
-- **Memória**: ChromaDB carregado em memória
-- **Escalabilidade**: Limitada pelo processamento local
+### **Current Limitations**
+- **Local Model**: DialoGPT can be slow on limited hardware
+- **Memory**: ChromaDB loaded in memory
+- **Scalability**: Limited by local processing
 
-## Segurança
+## Security
 
-### **Medidas Implementadas**
-- **CORS**: Configurado para domínios específicos
-- **Validação**: Verificação de entrada do usuário
-- **Sanitização**: Limpeza de dados HTML
-- **Local**: Processamento local sem envio de dados externos
+### **Implemented Measures**
+- **CORS**: Configured for specific domains
+- **Validation**: User input verification
+- **Sanitization**: HTML data cleaning
+- **Local**: Local processing without external data transmission
 
-### **Privacidade**
-- **Dados Locais**: Nenhum dado enviado para APIs externas
-- **Modelo Local**: DialoGPT roda completamente local
-- **Controle**: Usuário tem controle total sobre os dados
+### **Privacy**
+- **Local Data**: No data sent to external APIs
+- **Local Model**: DialoGPT runs completely locally
+- **Control**: User has full control over data
 
-## Deploy e Infraestrutura
+## Deployment and Infrastructure
 
-### **Opções de Hospedagem**
+### **Hosting Options**
 - **Vercel**: Frontend + Backend (Serverless)
 - **Render**: Web Services + Static Sites
 - **Railway**: Full-stack deployment
 - **Netlify**: Frontend + Serverless Functions
 
-### **Requisitos Mínimos**
-- **RAM**: 2GB (para modelos de IA)
-- **Storage**: 1GB (para ChromaDB)
-- **CPU**: 2 cores (para processamento)
+### **Minimum Requirements**
+- **RAM**: 2GB (for AI models)
+- **Storage**: 1GB (for ChromaDB)
+- **CPU**: 2 cores (for processing)
 
 ---
 
-*Este diagrama representa a arquitetura atual do sistema Academ.ia, que pode evoluir conforme novas funcionalidades são implementadas.* 
+*This diagram represents the current architecture of the Academ.ia system, which may evolve as new features are implemented.* 
