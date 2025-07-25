@@ -1,15 +1,31 @@
 
 # Academ.ia - CAPES Periodicals Portal with AI
 
-Intelligent search system for the CAPES Periodicals Portal, integrating generative AI with semantic search in academic documents.
+<div align="center">
+  <img src="capes.png" alt="CAPES Logo" width="200" style="margin: 20px;">
+  <img src="academia.png" alt="Academ.ia AI Assistant" width="200" style="margin: 20px;">
+</div>
+
+<div align="center">
+  <h3>🤖 Sistema Inteligente de Busca para o Portal de Periódicos da CAPES</h3>
+  <p><strong>Integrando IA Generativa com Busca Semântica em Documentos Acadêmicos</strong></p>
+  
+  [![Python](https://img.shields.io/badge/Python-3.9+-blue.svg)](https://www.python.org/)
+  [![React](https://img.shields.io/badge/React-18.3.1-blue.svg)](https://reactjs.org/)
+  [![Flask](https://img.shields.io/badge/Flask-2.0+-green.svg)](https://flask.palletsprojects.com/)
+  [![ChromaDB](https://img.shields.io/badge/ChromaDB-Latest-orange.svg)](https://www.trychroma.com/)
+  [![AI](https://img.shields.io/badge/AI-DialoGPT-purple.svg)](https://huggingface.co/microsoft/DialoGPT-medium)
+</div>
+
+---
 
 ## 🚀 Features
 
-- **Web Interface**: Design based on the CAPES Periodicals Portal
-- **AI Chat**: Virtual assistant for academic research
-- **Semantic Search**: Uses ChromaDB for intelligent search
-- **RAG (Retrieval-Augmented Generation)**: Combines document search with response generation
-- **Local Model**: Uses DialoGPT for response generation
+- **🌐 Interface Web**: Design baseado no Portal de Periódicos da CAPES
+- **🤖 Chat com IA**: Assistente virtual para pesquisa acadêmica
+- **🧠 Busca Semântica**: Usa ChromaDB para busca inteligente
+- **🔍 RAG (Retrieval-Augmented Generation)**: Combina busca de documentos com geração de respostas
+- **🏠 Modelo Local**: Usa DialoGPT para geração de respostas
 
 ## 🏗️ Architecture
 
@@ -145,7 +161,10 @@ The system uses:
 
 ## 🎨 Interface
 
-The interface was based on the official design of the CAPES Periodicals Portal, including:
+<div align="center">
+  <h4>🖥️ Interface Principal - Portal de Periódicos da CAPES</h4>
+  <p><em>Design oficial do Portal de Periódicos da CAPES com integração da IA</em></p>
+</div>
 
 - **Government Header**: Standard gov.br bar
 - **CAPES Logo**: Official visual identity
@@ -157,15 +176,15 @@ The interface was based on the official design of the CAPES Periodicals Portal, 
 
 ### General Questions
 ```
-"What articles talk about machine learning?"
-"Show articles about artificial intelligence in education"
-"What are the trends in AI?"
+"Quais artigos falam sobre machine learning?"
+"Mostre artigos sobre inteligência artificial na educação"
+"Quais são as tendências em IA?"
 ```
 
 ### Specific Questions
 ```
-"In the article 'Artificial Intelligence in Education', what are the main conclusions?"
-"What methodologies are mentioned in the article about machine learning?"
+"No artigo 'Inteligência Artificial na Educação', quais são as principais conclusões?"
+"Quais metodologias são mencionadas no artigo sobre machine learning?"
 ```
 
 ## 🔄 Data Flow
