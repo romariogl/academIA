@@ -7,8 +7,8 @@
 </div>
 
 <div align="center">
-  <h3>🤖 Sistema Inteligente de Busca para o Portal de Periódicos da CAPES</h3>
-  <p><strong>Integrando IA Generativa com Busca Semântica em Documentos Acadêmicos</strong></p>
+  <h3>🤖 Intelligent Search System for CAPES Periodicals Portal</h3>
+  <p><strong>Integrating Generative AI with Semantic Search in Academic Documents</strong></p>
   
   [![Python](https://img.shields.io/badge/Python-3.9+-blue.svg)](https://www.python.org/)
   [![React](https://img.shields.io/badge/React-18.3.1-blue.svg)](https://reactjs.org/)
@@ -21,11 +21,11 @@
 
 ## 🚀 Features
 
-- **🌐 Interface Web**: Design baseado no Portal de Periódicos da CAPES
-- **🤖 Chat com IA**: Assistente virtual para pesquisa acadêmica
-- **🧠 Busca Semântica**: Usa ChromaDB para busca inteligente
-- **🔍 RAG (Retrieval-Augmented Generation)**: Combina busca de documentos com geração de respostas
-- **🏠 Modelo Local**: Usa DialoGPT para geração de respostas
+- **🌐 Web Interface**: Design based on CAPES Periodicals Portal
+- **🤖 AI Chat**: Virtual assistant for academic research
+- **🧠 Semantic Search**: Uses ChromaDB for intelligent search
+- **🔍 RAG (Retrieval-Augmented Generation)**: Combines document search with response generation
+- **🏠 Local Model**: Uses DialoGPT for response generation
 
 ## 🏗️ Architecture
 
@@ -162,15 +162,24 @@ The system uses:
 ## 🎨 Interface
 
 <div align="center">
-  <h4>🖥️ Interface Principal - Portal de Periódicos da CAPES</h4>
-  <p><em>Design oficial do Portal de Periódicos da CAPES com integração da IA</em></p>
+  <h4>🖥️ Main Interface - CAPES Periodicals Portal</h4>
+  <p><em>Official CAPES Periodicals Portal design with AI integration</em></p>
 </div>
 
-- **Government Header**: Standard gov.br bar
-- **CAPES Logo**: Official visual identity
-- **Institutional Colors**: Blue (#1c1c5c) and orange (#f16421)
-- **Responsive Layout**: Works on desktop and mobile
-- **AI Chat Modal**: Integrated AI interface
+The interface was based on the official design of the CAPES Periodicals Portal, including:
+
+- **🏛️ Government Header**: Standard gov.br bar
+- **🎓 CAPES Logo**: Official visual identity
+- **🎨 Institutional Colors**: Blue (#1c1c5c) and orange (#f16421)
+- **📱 Responsive Layout**: Works on desktop and mobile
+- **🤖 AI Chat Modal**: Integrated AI interface
+
+### 🎯 Visual Characteristics
+
+- **Familiar Design**: Interface identical to the official CAPES Portal
+- **Seamless Integration**: AI integrated without breaking user experience
+- **Accessibility**: Following web accessibility standards
+- **Performance**: Fast loading and responsive
 
 ## 🔍 Usage Examples
 
@@ -235,11 +244,18 @@ This project is an educational prototype based on the CAPES Periodicals Portal.
 ## 🤝 Contribution
 
 1. Fork the project
-2. Create a branch for your feature
-3. Commit your changes
-4. Push to the branch
+2. Create a branch for your feature (`git checkout -b feature/AmazingFeature`)
+3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the branch (`git push origin feature/AmazingFeature`)
 5. Open a Pull Request
 
+## 📞 Support
+
+- **📧 Email**: [romariodelima@hotmail.com]
+- **🐛 Issues**: [GitHub Issues](https://github.com/your-username/academIA/issues)
 ---
 
-**Developed with ❤️ for the Brazilian academic community** 
+<div align="center">
+  <h3>🎓 Developed with ❤️ for the Brazilian academic community</h3>
+  <p><em>Innovating academic research with Artificial Intelligence</em></p>
+</div> 
