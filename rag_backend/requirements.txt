@@ -1,0 +1,20 @@
+flask
+flask-cors
+python-dotenv
+langchain
+beautifulsoup4
+langchain-community
+transformers
+torch
+sentence-transformers
+scikit-learn
+numpy
+requests
+gunicorn
+
+# ChromaDB para busca vetorial híbrida
+chromadb
+
+# Dependências opcionais para melhor performance
+faiss-cpu
+hnswlib

@@ -1,0 +1,1 @@
+# Este arquivo torna rag_backend um módulo Python 
